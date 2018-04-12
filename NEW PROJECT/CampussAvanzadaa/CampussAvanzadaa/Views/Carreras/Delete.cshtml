@@ -1,0 +1,202 @@
+﻿@model Avanzada.ViewModel.PersonaViewModel.EliminarViewModel
+@*@{
+    var persona = new Avanzada.Models.PatternRepository.Estructura();
+}*@
+
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+    ViewBag.Title = Model.Title;
+}
+
+<header>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse navbar-fixed-top bg-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <span class="fa fa-user"></span> Persona
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a asp-controller="Inicio" asp-action="Index">Inicio <span class="sr-only">(current)</span></a></li>
+
+                    @*<li class="active">
+
+                        <a href="Inicio.html">
+                            <span class="fa fa-home"></span> Inicio
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>*@
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Registro
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-controller="Persona" asp-action="Crear">Agregar</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a asp-controller="Persona" asp-action="Editar">Editar</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a asp-controller="Persona" asp-action="Eliminar">Eliminar</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#Asistencia">Asistencia Tecnica</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+</header>
+
+<body class="body_registro">
+    <section class="color_label_registro">
+        <div class="container">
+            <br />
+            <br />
+            <h3 class="titulos">@Model.Title</h3>
+            <hr>
+        </div>
+
+
+        <div class="container">
+
+            <form method="post" action="/Persona/Eliminar/">
+                <fieldset>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+
+                                <label class="control-label" asp-for="Carne">Carne</label>
+                                <input asp-for="Carne" class="form-control" placeholder="201801110256" id="carne" type="number">
+                                <span asp-validation-for="Carne"></span>
+                                
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="button" name="btn_buscar" class="btn_buscar" value="Buscar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <label class="control-label" asp-for="Nombre">Nombre</label>
+                                <input asp-for="Nombre" class="form-control" placeholder="Jon" type="text">
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label" asp-for="Apellido">Apellido</label>
+                                    <input asp-for="Apellido" class="form-control" placeholder="Doe" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <label class="control-label" asp-for="Telefono">Telefono</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">+506</span>
+                                    <input asp-for="Telefono" class="form-control" placeholder="12345678" type="number">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label" asp-for="Cedula">Cedula</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">ID</span>
+                                        <input asp-for="Cedula" class="form-control" placeholder="000000000" type="number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <label class="control-label" asp-for="FechaNacimiento">Fecha nacimiento</label>
+                                <input type="date" asp-for="FechaNacimiento" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label" asp-for="Correo">Correo</label>
+                                    <input asp-for="Correo" class="form-control" placeholder="ejemplo@org.com" type="email">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <label class="control-label" for="sexo">Sexo</label>
+                                <select class="form-control" name="sexo">
+                                    <option selected>Seleccione el sexo</option>
+                                    <option value="1">Masculino</option>
+                                    <option value="2">Femenino</option>
+                                    <option value="3">Indefinido</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                @*<div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <button type="submit" class="btn btn-dark btn-lg btn_registrar">
+                                    Guardar
+                                    <span class="fa fa-save" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-4">
+                            <button type="submit" class="btn btn-dark btn-lg btn_registrar">Guardar <span class="fa fa-save" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </section>
+</body>

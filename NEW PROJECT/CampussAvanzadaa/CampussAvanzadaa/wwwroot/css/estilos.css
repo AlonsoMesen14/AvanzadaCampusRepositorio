@@ -1,0 +1,129 @@
+
+body { 
+			background-image: url(https://www.navitasventures.com/wp-content/uploads/2016/06/Material-design-background-514054880_2126x1416.jpeg);
+			background-position: center center;
+			background-repeat:  no-repeat;
+			background-attachment: fixed;
+			background-size:  cover;
+			background-color: #999;
+  
+}
+
+.titulos{
+  text-align: center;
+}
+#wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 34px;
+}
+
+.page-head-image img {
+  border-radius: 50%;
+}
+
+#form-trabalhe {
+  margin-top: 30px;
+  text-align: left;
+}
+
+label {
+  font-weight: normal;
+  margin-top: 15px;
+}
+
+input {
+  border: 2px solid #CCC;
+  height: 35px;
+  border-radius: 3px;
+  max-width: 100%;
+}
+
+.input-group-addon {
+  border: 2px solid #CCC ;
+  border-right: 0px ;
+}
+
+.btn_buscar {
+  border: 2px solid #555555;
+  border-radius: 3px;
+  width: 70px;
+  margin-top: 40px;
+  color: black;
+
+  border-radius: 10px;
+   background: rgba(0,0,0,0);
+  color: #82c9ed;
+  box-shadow: inset 0 0 0 3px #82c9ed;
+ 
+}
+
+
+.btn_buscar:hover{
+    background-color: #008CBA;
+  color: black;
+
+}
+
+.btn_registrar{
+
+  border-radius: 10px;
+  margin-top: 15px;
+  background: rgba(0,0,0,0);
+  color: #82c9ed;
+  box-shadow: inset 0 0 0 3px #82c9ed;
+ 
+}
+
+.btn_registrar:hover{
+  background-color: #008CBA;
+}
+
+.btn_boton{
+  border-radius: 10px;
+  margin-top: 5px;
+  background: rgba(0,0,0,0);
+  color: #82c9ed;
+  box-shadow: inset 0 0 0 3px #82c9ed;
+}
+
+.btn_boton:hover{
+  background-color: #008CBA;
+}
+
+.form-group {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.header_menu{
+    position: fixed;
+    height: 15px;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #343a40;
+    color: #fff;
+    margin-bottom:0
+
+}
+
+.color_label_registro{
+	color: white;
+}
+
+
+.cambiar_contraseña{
+  margin-top: 10%;
+}
+.thead-inverse th {
+  color: #fff;
+  background-color: #373a3c;
+}
+
+.color_select{
+	color: black;
+}

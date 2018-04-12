@@ -1,0 +1,23 @@
+.carousel{
+margin-top: 40px;
+margin-left: 10px;
+}
+.carousel, .carousel-inner > .item > img {
+  height: 400px;
+  width: 700px;
+}
+
+.buttons{
+	margin-top: 5%;
+}
+
+
+body { 
+	background-image: url(https://www.jinnah.edu/wp-content/uploads/2014/06/university-background-04.jpg);
+	background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  cover;
+	background-color: #999;
+}
+
