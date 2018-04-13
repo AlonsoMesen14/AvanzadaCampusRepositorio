@@ -20,3 +20,14 @@ C:\Users\jesma\Desktop\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\obj\Debug\n
 C:\Users\jesma\Desktop\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\obj\Debug\netcoreapp2.0\CampussAvanzadaa.AssemblyInfo.cs
 C:\Users\jesma\Desktop\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\obj\Debug\netcoreapp2.0\CampussAvanzadaa.dll
 C:\Users\jesma\Desktop\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\obj\Debug\netcoreapp2.0\CampussAvanzadaa.pdb
+E:\ULatina\Progra Avanzada\Proyecto\Avellanas\AvanzadaCampusRepositorio\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\obj\Debug\netcoreapp2.0\CampussAvanzadaa.csprojResolveAssemblyReference.cache
+E:\ULatina\Progra Avanzada\Proyecto\Avellanas\AvanzadaCampusRepositorio\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\obj\Debug\netcoreapp2.0\CampussAvanzadaa.csproj.CoreCompileInputs.cache
+E:\ULatina\Progra Avanzada\Proyecto\Avellanas\AvanzadaCampusRepositorio\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\obj\Debug\netcoreapp2.0\CampussAvanzadaa.AssemblyInfoInputs.cache
+E:\ULatina\Progra Avanzada\Proyecto\Avellanas\AvanzadaCampusRepositorio\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\obj\Debug\netcoreapp2.0\CampussAvanzadaa.AssemblyInfo.cs
+E:\ULatina\Progra Avanzada\Proyecto\Avellanas\AvanzadaCampusRepositorio\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\obj\Debug\netcoreapp2.0\CampussAvanzadaa.dll
+E:\ULatina\Progra Avanzada\Proyecto\Avellanas\AvanzadaCampusRepositorio\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\obj\Debug\netcoreapp2.0\CampussAvanzadaa.pdb
+E:\ULatina\Progra Avanzada\Proyecto\Avellanas\AvanzadaCampusRepositorio\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\bin\Debug\netcoreapp2.0\CampussAvanzadaa.deps.json
+E:\ULatina\Progra Avanzada\Proyecto\Avellanas\AvanzadaCampusRepositorio\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\bin\Debug\netcoreapp2.0\CampussAvanzadaa.runtimeconfig.json
+E:\ULatina\Progra Avanzada\Proyecto\Avellanas\AvanzadaCampusRepositorio\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\bin\Debug\netcoreapp2.0\CampussAvanzadaa.runtimeconfig.dev.json
+E:\ULatina\Progra Avanzada\Proyecto\Avellanas\AvanzadaCampusRepositorio\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\bin\Debug\netcoreapp2.0\CampussAvanzadaa.dll
+E:\ULatina\Progra Avanzada\Proyecto\Avellanas\AvanzadaCampusRepositorio\NEW PROJECT\CampussAvanzadaa\CampussAvanzadaa\bin\Debug\netcoreapp2.0\CampussAvanzadaa.pdb
