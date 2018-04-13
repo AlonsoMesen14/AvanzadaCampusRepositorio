@@ -1,0 +1,236 @@
+﻿@model CampussAvanzadaa.Model.VentanasViewModel.EditarViewModel
+
+@{
+	//ViewBag.Title = Model.Title;
+}
+
+
+<header>
+
+	<nav class="navbar navbar-toggleable-md navbar-inverse navbar-fixed-top bg-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+						aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+					<span class="fa fa-user"></span> ventana
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="Inicio.html">
+							<span class="fa fa-home"></span> Inicio
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							ventana
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="ventana.html">Agregar</a>
+							</li>
+							<li role="separator" class="divider"></li>
+							<li>
+								<a href="#">Editar</a>
+							</li>
+							<li role="separator" class="divider"></li>
+							<li>
+								<a href="Eliminar_ventana.html">Eliminar</a>
+							</li>
+
+						</ul>
+					</li>
+					<li>
+						<a href="#" data-toggle="modal" data-target="#Asistencia">Asistencia Tecnica</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+
+</header>
+
+<!-- Modal -->
+<div class="modal fade" id="Asistencia" role="dialog">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Pongase en contacto con nosotros</h4>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="recipient-name" class="col-form-label">Identificacion</label>
+						<input type="number" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="message-text" class="col-form-label">Corta Descripcion:</label>
+						<input type="textarea" name="" class="form-control">
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="alert('Pronto nos pondremos en contacto con usted')">Enviar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+<body class="body_registro">
+
+	<section class="color_label_registro">
+
+
+		<div class="container">
+			<br />
+			<br />
+			<h3 class="titulos">Editar ventana</h3>
+			<hr>
+		</div>
+		<div class="container">
+
+			<form id="form-work" class="" name="form-work" action="#">
+				<fieldset>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-offset-2 col-md-4">
+								<label class="control-label" asp-for="IdVentana" id="CategoryType"></label>
+								<select class="form-control" name="ventana">
+
+									@foreach (var item in Model.Ventanas)
+									{
+
+										<option value="@item.IdVentana">@item.Descripcion</option>
+									}
+
+								</select>
+								<span asp-validation-for="Ventanas"></span>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-6">
+									<label class="control-label" asp-for="IdVentana"></label>
+
+									<select class="form-control" name="ventana" id="SubCategory">
+
+										@*@foreach (var item in Model.Cursos)
+											{
+
+												<option value="@item.IdCurso">@item.Descripcion</option>
+											}*@
+
+									</select>
+
+									@*<input asp-for="Persona" class="form-control" type="text" disabled>*@
+
+
+
+									<span asp-validation-for="IdVentana"></span>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					@*<div class="form-group">
+							<div class="col-md-6">
+								<label class="control-label" asp-for="Nombreventana"></label>
+								<input asp-for="Nombreventana" class="form-control" placeholder="Doe" type="text">
+								<span asp-validation-for="Nombreventana"></span>
+							</div>
+						</div>*@
+
+
+					@*<div class="form-group">
+							<div class="row">
+								<div class="col-md-offset-2 col-md-4">
+									<label class="control-label" for="ventana">Código de ventana</label>
+									<select class="form-control" name="ventana">
+										<option selected>Seleccione la ventana</option>
+										<option value="1">ventana 01</option>
+										<option value="2">ventana 02</option>
+										<option value="3">ventana 03</option>
+									</select>
+								</div>
+
+								<div class="col-md-4">
+									<label class="color_label_registro" for="Desventana">Nombre del ventana</label>
+									<input name="Desventana" class="form-control" placeholder="ventana 0001" type="text" required="true">
+								</div>
+							</div>
+						</div>*@
+
+				</fieldset>
+
+			</form>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-offset-2 col-md-4">
+						<button type="submit" class="btn btn-dark btn-lg btn_registrar" onclick="alert('Cambios Guardados')">
+							Guardar Cambios
+							<span class="fa fa-save" aria-hidden="true"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+	</section>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+
+        $("#CategoryType").change(function () {
+            $("#SubCategory").empty();
+            $.ajax({
+                type: 'POST',
+
+                url: '@Url.Action("GetVentanasXPerfil")',
+                dataType: 'json',
+                data: { id: $("#CategoryType").val() },
+                success: function (subcategories) {
+
+                    $.each(subcategories, function (i, subcategory) {
+
+                        $("#SubCategory").append('<option value="'
+                            + subcategory.Value + '">' +
+                            subcategory.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Error al traer las ventanas por perfil : ' + ex);
+                }
+            });
+            return false;
+        })
+    });
+</script>
