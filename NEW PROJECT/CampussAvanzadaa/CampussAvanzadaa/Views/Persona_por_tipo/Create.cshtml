@@ -1,0 +1,69 @@
+﻿@model CampussAvanzadaa.Model.Persona_por_tipo.CrearViewModel
+
+
+<body class="body_registro">
+
+    <section class="color_label_registro">
+
+        <div class="container">
+
+            <h3 class="titulos">@ViewBag.Title</h3>
+            <hr>
+        </div>
+
+        <div id="wrapper" class="container">
+
+            <form method="post">
+
+                <fieldset>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label" asp-for="Persona"></label>
+
+                            @* <input asp-for="CarreraId" class="form-control" type="text" disabled>*@
+
+
+                            <select class="form-control">
+
+                                @foreach (var item in Model.Persona)
+                                {
+
+                                    <option value="@item.IdPersona">@item.NombreCompleto</option>
+                                }
+
+                            </select>
+
+                            <span asp-validation-for="Persona"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label" asp-for="TipoPersona"></label>
+
+                            <select class="form-control" name="carrera">
+
+                                @foreach (var item in Model.TipoPersona)
+                                {
+
+                                    <option value="@item.IdTipoPersona">@item.Descripción</option>
+                                }
+
+                            </select>
+
+                            @*  <input asp-for="NombreCarrera" class="form-control" placeholder="Doe" type="text">*@
+
+                            <span asp-validation-for="TipoPersona"></span>
+                        </div>
+                    </div>
+
+
+
+                </fieldset>
+
+                <button type="submit" class="btn btn-dark btn-lg btn_registrar">Crear <span class="fa fa-save" aria-hidden="true"></span></button>
+            </form>
+        </div>
+    </section>
+</body>
