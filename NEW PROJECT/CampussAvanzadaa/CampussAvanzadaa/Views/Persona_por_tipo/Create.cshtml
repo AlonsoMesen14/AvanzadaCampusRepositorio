@@ -21,16 +21,19 @@
                         <div class="col-md-6">
                             <label class="control-label" asp-for="Persona"></label>
 
-                            @* <input asp-for="CarreraId" class="form-control" type="text" disabled>*@
 
+                            <select asp-for="Persona" class="form-control" asp-items="@(new SelectList(Model.Persona,"IdPersona","NombreCompleto"))">
+                                <option>Please select one</option>
+                                @*    <select asp-for="EmployeeId"
+                                            asp-items="@(new SelectList(Model.EmployeesList,"Id","FullName"))">
+                                        <option>Please select one</option>
+                                    </select>*@
 
-                            <select class="form-control">
+                                @*@foreach (var item in Model.Persona)
+                                    {
 
-                                @foreach (var item in Model.Persona)
-                                {
-
-                                    <option value="@item.IdPersona">@item.NombreCompleto</option>
-                                }
+                                        <option value="@item.IdPersona">@item.NombreCompleto</option>
+                                    }*@
 
                             </select>
 
@@ -42,7 +45,7 @@
                         <div class="col-md-6">
                             <label class="control-label" asp-for="TipoPersona"></label>
 
-                            <select class="form-control" name="carrera">
+                            <select asp-for="TipoPersona" class="form-control" name="carrera">
 
                                 @foreach (var item in Model.TipoPersona)
                                 {

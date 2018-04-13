@@ -110,16 +110,16 @@
             <h3 class="titulos">Editar Carrera</h3>
             <hr>
         </div>
-        <div class="container">
+        <div id="wrapper" class="container">
 
-            <form id="form-work" class="" name="form-work" action="#">
+            <form action="post">
                 <fieldset>
 
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-offset-2 col-md-4">
-                                <label class="control-label" asp-for="Carreras" id="CategoryType"></label>
-                                <select class="form-control" name="carrera">
+                                <label class="control-label" asp-for="Carreras"></label>
+                                <select asp-for="Carreras" class="form-control" name="carrera">
 
                                     @foreach (var item in Model.Carreras)
                                     {
@@ -157,47 +157,13 @@
                         </div>
                     </div>
 
-                    @*<div class="form-group">
-                            <div class="col-md-6">
-                                <label class="control-label" asp-for="NombreCarrera"></label>
-                                <input asp-for="NombreCarrera" class="form-control" placeholder="Doe" type="text">
-                                <span asp-validation-for="NombreCarrera"></span>
-                            </div>
-                        </div>*@
 
-
-                    @*<div class="form-group">
-                            <div class="row">
-                                <div class="col-md-offset-2 col-md-4">
-                                    <label class="control-label" for="carrera">Código de Carrera</label>
-                                    <select class="form-control" name="carrera">
-                                        <option selected>Seleccione la carrera</option>
-                                        <option value="1">Carrera 01</option>
-                                        <option value="2">Carrera 02</option>
-                                        <option value="3">Carrera 03</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="color_label_registro" for="DesCarrera">Nombre del Carrera</label>
-                                    <input name="DesCarrera" class="form-control" placeholder="Carrera 0001" type="text" required="true">
-                                </div>
-                            </div>
-                        </div>*@
 
                 </fieldset>
 
+                <button type="submit" class="btn btn-dark btn-lg btn_registrar">Guardar <span class="fa fa-save" aria-hidden="true"></span></button>
+
             </form>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-offset-2 col-md-4">
-                        <button type="submit" class="btn btn-dark btn-lg btn_registrar" onclick="alert('Cambios Guardados')">
-                            Guardar Cambios
-                            <span class="fa fa-save" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
@@ -206,31 +172,31 @@
 
 </body>
 
-<script>
-    $(document).ready(function () {
+@*<script>
+        $(document).ready(function () {
 
-        $("#CategoryType").change(function () {
-            $("#SubCategory").empty();
-            $.ajax({
-                type: 'POST',
+            $("#CategoryType").change(function () {
+                $("#SubCategory").empty();
+                $.ajax({
+                    type: 'POST',
 
-                url: '@Url.Action("GetSubCategories")',
-                dataType: 'json',
-                data: { id: $("#CategoryType").val() },
-                success: function (subcategories) {
+                    url: '@Url.Action("GetSubCategories")',
+                    dataType: 'json',
+                    data: { id: $("#CategoryType").val() },
+                    success: function (subcategories) {
 
-                    $.each(subcategories, function (i, subcategory) {
+                        $.each(subcategories, function (i, subcategory) {
 
-                        $("#SubCategory").append('<option value="'
-                            + subcategory.Value + '">' +
-                            subcategory.Text + '</option>');
-                    });
-                },
-                error: function (ex) {
-                    alert('Failed to retrieve Sub Categories : ' + ex);
-                }
-            });
-            return false;
-        })
-    });
-</script>
+                            $("#SubCategory").append('<option value="'
+                                + subcategory.Value + '">' +
+                                subcategory.Text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        alert('Failed to retrieve Sub Categories : ' + ex);
+                    }
+                });
+                return false;
+            })
+        });
+    </script>*@
