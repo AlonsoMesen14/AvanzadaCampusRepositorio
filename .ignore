@@ -3,3 +3,8 @@
 *.log
 *.pdb
 *.json
+*.suo
+*.ide
+*.config
+*.txt
+*.props
