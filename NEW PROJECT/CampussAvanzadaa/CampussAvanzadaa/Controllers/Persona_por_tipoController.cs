@@ -42,20 +42,16 @@ namespace CampussAvanzadaa.Controllers
         [HttpPost]
         public IActionResult Create(CrearViewModel modelo)
         {
-
+            
             if (ModelState.IsValid)
             {
-                
-
-                var tipo = modelo.TipoPersona.OfType<Model.TipoPersona>().FirstOrDefault();
-                var persona = modelo.Persona.OfType<Model.Persona>().FirstOrDefault();
 
 
                 _context.PersonaXtipo.Add(new Model.PersonaXtipo
                 {
 
-                    IdPersona = persona.IdPersona,
-                    IdTipoPersona = tipo.IdTipoPersona
+                    IdPersona = modelo.PersonaSelecionada,
+                    IdTipoPersona = modelo.TipoPersonaSelecionada
 
                 });
 

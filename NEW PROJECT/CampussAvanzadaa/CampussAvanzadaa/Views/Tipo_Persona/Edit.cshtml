@@ -19,19 +19,18 @@
                 <fieldset>
                     <div class="form-group">
                         <div class="col-md-6">
-                            <label class="control-label" asp-for="Tipos"></label>
-                            @*<input asp-for="TipoNombre" class="form-control" type="text" disabled>*@
+                            <label class="control-label" asp-for="TipoId"></label>
 
-                            <select class="form-control" name="carrera">
+                            <select asp-for="TipoId" class="form-control" >
 
                                 @foreach (var item in Model.Tipos)
                                 {
 
-                                    <option value="@item.IdTipoPersona">@item.IdTipoPersona</option>
+                                    <option value="@item.IdTipoPersona">@item.Descripción</option>
                                 }
 
                             </select>
-                            <span asp-validation-for="Tipos"></span>
+                            <span asp-validation-for="TipoId"></span>
                         </div>
                     </div>
 
