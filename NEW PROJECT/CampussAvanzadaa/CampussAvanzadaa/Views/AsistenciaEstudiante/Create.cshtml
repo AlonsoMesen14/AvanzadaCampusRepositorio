@@ -113,8 +113,8 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-3">
-                                <label class="control-label" asp-for="Cursos">Curso:</label>
-                                <select class="form-control" name="Cursos">
+                                <label class="control-label" asp-for="CursoSeleccionado">Curso:</label>
+                                <select class="form-control" asp-for="CursoSeleccionado">
 
                                     @foreach (var item in Model.Cursos)
         {
@@ -141,16 +141,24 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="control-label" asp-for="Grupos">Grupo:</label>
-                                <input asp-for="Grupos" class="form-control" placeholder="Doe" type="text">
+                                <select class="form-control" asp-for="GrupoSeleccionado">
+
+                                    @foreach (var item in Model.Grupos)
+        {
+
+                            <option value="@item.IdGrupo">@item.IdGrupo</option>
+}
+
+                                </select>
                                 <span asp-validation-for="Grupos"></span>
 
                                 @*<select required class="form-control">
-                    <option value="" selected>Seleccione</option>
-                    <option value="grupo1">1</option>
-                    <option value="grupo2">2</option>
-                    <option value="grupo3">3</option>
-                    <option value="grupo4">4</option>
-                </select>*@
+            <option value="" selected>Seleccione</option>
+            <option value="grupo1">1</option>
+            <option value="grupo2">2</option>
+            <option value="grupo3">3</option>
+            <option value="grupo4">4</option>
+        </select>*@
                             </div>
                         </div>
                         <br />
