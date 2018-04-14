@@ -53,8 +53,15 @@ namespace CampussAvanzadaa
             {
                 routes.MapRoute(
                     name: "default",
+<<<<<<< HEAD
                     template: "{controller=Notas}/{action=Edit}/{id?}");
             });
+=======
+                    template: "{controller=Carreras}/{action=Edit}/{id?}");
+          //  template: "{controller=Persona_por_tipo}/{action=Create}/{id?}");
+
+        });
+>>>>>>> ac0d4326e00fb1400f06265db9df9a4169b9ae9f
         }
     }
 }
