@@ -42,33 +42,16 @@ namespace CampussAvanzadaa.Controllers
         [HttpPost]
         public IActionResult Create(CrearViewModel modelo)
         {
-
+            
             if (ModelState.IsValid)
             {
-
-
-                //var carrera = (from c in _context.Carreras select c.IdCarrera);
-                ////se ocupa generar una tabla secuencias donde se almacenan los ids de las entidades
-                //string id = "Carrera02";
-
-                //_context.Carreras.Add(new Model.Carreras
-                //{
-                //    NombreCarrera = modelo.NombreCarrera,
-                //    Cursos = null,
-                //    IdCarrera = id,
-                //    IdPersona = modelo.PersonaAsignada,
-
-                //});
-
-                var tipo = modelo.TipoPersona.OfType<Model.TipoPersona>().FirstOrDefault();
-                var persona = modelo.Persona.OfType<Model.Persona>().FirstOrDefault();
 
 
                 _context.PersonaXtipo.Add(new Model.PersonaXtipo
                 {
 
-                    IdPersona = persona.IdPersona,
-                    IdTipoPersona = tipo.IdTipoPersona
+                    IdPersona = modelo.PersonaSelecionada,
+                    IdTipoPersona = modelo.TipoPersonaSelecionada
 
                 });
 
@@ -88,6 +71,9 @@ namespace CampussAvanzadaa.Controllers
 
             return View(modelo);
         }
+
+
+
 
 
     }

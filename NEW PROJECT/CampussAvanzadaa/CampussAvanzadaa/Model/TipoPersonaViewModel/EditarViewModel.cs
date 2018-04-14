@@ -8,13 +8,17 @@ namespace CampussAvanzadaa.Model.TipoPersonaViewModel
 {
     public class EditarViewModel
     {
-        [Required]
-        [Display(Name ="Selecione el tipo")]
+
         public ICollection<TipoPersona> Tipos { get; set; }
+
+        [Required]
+        [Display(Name = "Selecione el tipo")]
+        public string TipoId { get; set; }
+
 
         [Required]
         [Display(Name = "Nombre del tipo")]
         public string TipoNombre { get; set; }
-        
+
     }
 }

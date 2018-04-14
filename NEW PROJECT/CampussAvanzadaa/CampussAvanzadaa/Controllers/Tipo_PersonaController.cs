@@ -79,18 +79,22 @@ namespace CampussAvanzadaa.Controllers
 
             if (ModelState.IsValid)
             {
-                //var carrera = (from c in _context.Carreras select c.IdCarrera);
-                //se ocupa generar una tabla secuencias donde se almacenan los ids de las entidades
-                string Id = "TP001";
+                //SAMPLE HOW TO DO AN UPDATE
 
-                _context.TipoPersona.Update(new Model.TipoPersona
-                {
-                    IdTipoPersona = Id,
-                    Descripción = modelo.TipoNombre,
-                    Persona = null,
-                    PersonaXtipo = null
-                });
+                //var cust =
+                //    (from c in db.Customers
+                //     where c.CustomerID == "ALFKI"
+                //     select c).First();
 
+                //// Change the name of the contact.
+                //cust.ContactName = "New Contact";
+
+
+
+                var tipo = (from c in _context.TipoPersona where c.IdTipoPersona == modelo.TipoId select c).FirstOrDefault();
+
+                tipo.Descripción = modelo.TipoNombre;                     
+                
                 _context.SaveChanges();
 
                 return RedirectToAction("Index", new Microsoft.AspNetCore.Routing.RouteValueDictionary(
@@ -98,7 +102,7 @@ namespace CampussAvanzadaa.Controllers
 
             }
 
-            return View();
+            return View(modelo);
         }
 
     }
