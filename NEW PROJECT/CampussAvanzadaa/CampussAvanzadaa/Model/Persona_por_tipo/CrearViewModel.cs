@@ -9,17 +9,17 @@ namespace CampussAvanzadaa.Model.Persona_por_tipo
     public class CrearViewModel
     {
         //combobox por mientras
-        [Required]
-        [Display(Name="Persona")]
+
         public ICollection<Persona> Persona { get; set; }
 
-
+        [Required]
+        [Display(Name = "Persona")]
         public string PersonaSelecionada { get; set; }
+
+        public ICollection<TipoPersona> TipoPersona { get; set; }
 
         [Required]
         [Display(Name = "Tipo Persona")]
-        public ICollection<TipoPersona> TipoPersona { get; set; }
-
         public string TipoPersonaSelecionada { get; set; }
 
 

@@ -19,21 +19,15 @@
 
                     <div class="form-group">
                         <div class="col-md-6">
-                            <label class="control-label" asp-for="Persona"></label>
+                            <label class="control-label" asp-for="PersonaSelecionada"></label>
 
+                            <select asp-for="PersonaSelecionada" class="form-control">
 
-                            <select asp-for="Persona" class="form-control" asp-items="@(new SelectList(Model.Persona,"IdPersona","NombreCompleto"))">
-                                <option>Please select one</option>
-                                @*    <select asp-for="EmployeeId"
-                                            asp-items="@(new SelectList(Model.EmployeesList,"Id","FullName"))">
-                                        <option>Please select one</option>
-                                    </select>*@
+                                @foreach (var item in Model.Persona)
+                                {
 
-                                @*@foreach (var item in Model.Persona)
-                                    {
-
-                                        <option value="@item.IdPersona">@item.NombreCompleto</option>
-                                    }*@
+                                    <option value="@item.IdPersona">@item.NombreCompleto</option>
+                                }
 
                             </select>
 
@@ -43,9 +37,9 @@
 
                     <div class="form-group">
                         <div class="col-md-6">
-                            <label class="control-label" asp-for="TipoPersona"></label>
+                            <label class="control-label" asp-for="TipoPersonaSelecionada"></label>
 
-                            <select asp-for="TipoPersona" class="form-control" name="carrera">
+                            <select asp-for="TipoPersonaSelecionada" class="form-control">
 
                                 @foreach (var item in Model.TipoPersona)
                                 {
@@ -55,9 +49,8 @@
 
                             </select>
 
-                            @*  <input asp-for="NombreCarrera" class="form-control" placeholder="Doe" type="text">*@
-
-                            <span asp-validation-for="TipoPersona"></span>
+                        
+                            <span asp-validation-for="TipoPersonaSelecionada"></span>
                         </div>
                     </div>
 
