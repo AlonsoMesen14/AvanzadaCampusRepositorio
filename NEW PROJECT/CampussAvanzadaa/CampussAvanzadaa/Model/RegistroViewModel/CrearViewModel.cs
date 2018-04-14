@@ -40,12 +40,11 @@ namespace CampussAvanzadaa.Model.RegistroViewModel
         //public string Password { get; set; }
 
         [Required]
-        [StringLength(50)]
         public string Pais { get; set; }
         
         public ICollection<Pais> Paises { get; set; }
 
-        [StringLength(50)]
+
         public string Ciudad { get; set; }
 
         [Required]
@@ -55,7 +54,7 @@ namespace CampussAvanzadaa.Model.RegistroViewModel
         [StringLength(50)]
         public string IdTipoPersona { get; set; }
 
-        [Required]
+
         [Display(Name = "Tipo Persona")]
         public ICollection<TipoPersona> Tipos { get; set; }
 

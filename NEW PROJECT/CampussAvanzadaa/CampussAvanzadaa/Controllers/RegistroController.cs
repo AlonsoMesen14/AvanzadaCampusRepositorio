@@ -39,34 +39,39 @@ namespace CampussAvanzadaa.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (modelo.Genero == "M" || modelo.Genero == "F" || modelo.Genero == "I")
+                int persona = (from p in _context.Persona where p.IdPersona == modelo.IdPersona select p).Count();
+
+                if (persona <= 0)
                 {
-                    var password = "12345";
-
-                    _context.Persona.Add(new Model.Persona
+                    if (modelo.Genero == "M" || modelo.Genero == "F" || modelo.Genero == "I")
                     {
-                        NombreCompleto = modelo.Nombre + " " + modelo.Apellido1 + " " + modelo.Apellido2,
-                        IdTipoPersona = modelo.IdTipoPersona,
-                        Correo = modelo.Correo,
-                        Genero = modelo.Genero,
-                        Carnet = modelo.Carnet,
-                        Pais = modelo.Pais,
-                        Ciudad = modelo.Ciudad,
-                        Password = password,
-                        IdPersona = modelo.IdPersona
+                        var password = "12345";
 
-                    });
+                        _context.Persona.Add(new Model.Persona
+                        {
+                            NombreCompleto = modelo.Nombre + " " + modelo.Apellido1 + " " + modelo.Apellido2,
+                            IdTipoPersona = modelo.IdTipoPersona,
+                            Correo = modelo.Correo,
+                            Genero = modelo.Genero,
+                            Carnet = modelo.Carnet,
+                            Pais = modelo.Pais,
+                            Ciudad = modelo.Ciudad,
+                            Password = password,
+                            IdPersona = modelo.IdPersona
 
-                    _context.SaveChanges();
+                        });
 
-                    return RedirectToAction("Index", new Microsoft.AspNetCore.Routing.RouteValueDictionary(
-                          new { controller = "Home", action = "Index" }));
+                        _context.SaveChanges();
+
+                        return RedirectToAction("Index", new Microsoft.AspNetCore.Routing.RouteValueDictionary(
+                              new { controller = "Home", action = "Index" }));
+                    }
+
+
                 }
-
-                return View();
+                return View(modelo);
             }
-
-            return View();
+            return View(modelo);
         }
 
         public IActionResult Edit()

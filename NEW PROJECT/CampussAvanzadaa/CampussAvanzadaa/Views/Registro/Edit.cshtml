@@ -1,0 +1,237 @@
+﻿@model CampussAvanzadaa.Model.RegistroViewModel.EditarViewModel
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./estilos.css">
+    <script src="./validaciones.js"></script>
+    <title>Editar Persona</title>
+</head>
+
+
+<header>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse navbar-fixed-top bg-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <span class="fa fa-user"></span> Persona
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    @*<li class="active">
+            <a href="Inicio.html">
+                <span class="fa fa-home"></span> Inicio
+                <span class="sr-only">(current)</span>
+            </a>
+        </li>*@
+                    <li><a asp-controller="Home" asp-action="Index"><span class="fa fa-home"></span>Inicio</a></li>
+
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Registro
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="Registro.html">Agregar</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="#">Editar</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="Eliminar_Registro.html">Eliminar</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#Asistencia">Asistencia Tecnica</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+</header>
+
+<!-- Modal -->
+<div class="modal fade" id="Asistencia" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Pongase en contacto con nosotros</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Identificacion</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Corta Descripcion:</label>
+                        <input type="textarea" name="" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="alert('Pronto nos pondremos en contacto con usted')">Enviar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<body class="body_registro">
+
+    <section class="color_label_registro">
+
+        <div class="container">
+            <br />
+            <br />
+            <h3 class="titulos">Editar Persona</h3>
+            <hr>
+
+        </div>
+
+
+        <div class="container">
+
+            <form id="form-work" class="" name="form-work" action="#">
+
+                <fieldset>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <label class="control-label" for="carnet">Carne</label>
+                                <input name="carnet" class="form-control" placeholder="201801110256" id="carne" type="number" required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="button" name="btn_buscar" class="btn_buscar" onclick="ValidarCarne()" value="Buscar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <label class="control-label" for="nome">Nombre</label>
+                                <input name="nombre" class="form-control" placeholder="Jon" type="text" required="true">
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label" for="apellido">Apellido</label>
+                                    <input name="apellido" class="form-control" placeholder="Doe" type="text" required="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <label class="control-label" for="tel">Telefono</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">+506</span>
+                                    <input name="tel" class="form-control" placeholder="12345678" type="number" required="true">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label" for="cedula">Cedula</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">ID</span>
+                                        <input name="cedula" class="form-control" placeholder="000000000" type="number" required="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-4">
+                                    <label class="control-label" for="fecha">Fecha nacimiento</label>
+                                    <input type="date" name="fecha" class="form-control" required="true" required="true">
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label" for="correo">Correo</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">@</span>
+                                            <input name="correo" class="form-control" placeholder="ejemplo@org.com" type="email" required="true">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-4">
+                                    <label class="control-label" for="sexo">Sexo</label>
+                                    <select class="form-control" name="sexo">
+                                        <option selected>Seleccione el sexo</option>
+                                        <option value="1">Masculino</option>
+                                        <option value="2">Femenino</option>
+                                        <option value="3">Indefinido</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                </fieldset>
+            </form>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-4">
+                        <button type="submit" class="btn btn-dark btn-lg btn_registrar" onclick="Validar_Edicion_Registro()">
+                            Guardar
+                            <span class="fa fa-save" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+    </section>
+</body>
