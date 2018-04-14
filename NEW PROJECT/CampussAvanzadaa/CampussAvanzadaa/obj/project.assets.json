@@ -13126,27 +13126,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\johan\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Users\\harol\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\johan\\Desktop\\Johan\\Trabajos U\\1er Cuatri ~ 2018\\Prog. Avanzada\\Proyecto\\AvanzadaCampusRepositorio\\NEW PROJECT\\CampussAvanzadaa\\CampussAvanzadaa\\CampussAvanzadaa.csproj",
+      "projectUniqueName": "C:\\Avellanas\\AvanzadaCampusRepositorio\\NEW PROJECT\\CampussAvanzadaa\\CampussAvanzadaa\\CampussAvanzadaa.csproj",
       "projectName": "CampussAvanzadaa",
-      "projectPath": "C:\\Users\\johan\\Desktop\\Johan\\Trabajos U\\1er Cuatri ~ 2018\\Prog. Avanzada\\Proyecto\\AvanzadaCampusRepositorio\\NEW PROJECT\\CampussAvanzadaa\\CampussAvanzadaa\\CampussAvanzadaa.csproj",
-      "packagesPath": "C:\\Users\\johan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\johan\\Desktop\\Johan\\Trabajos U\\1er Cuatri ~ 2018\\Prog. Avanzada\\Proyecto\\AvanzadaCampusRepositorio\\NEW PROJECT\\CampussAvanzadaa\\CampussAvanzadaa\\obj\\",
+      "projectPath": "C:\\Avellanas\\AvanzadaCampusRepositorio\\NEW PROJECT\\CampussAvanzadaa\\CampussAvanzadaa\\CampussAvanzadaa.csproj",
+      "packagesPath": "C:\\Users\\harol\\.nuget\\packages\\",
+      "outputPath": "C:\\Avellanas\\AvanzadaCampusRepositorio\\NEW PROJECT\\CampussAvanzadaa\\CampussAvanzadaa\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\johan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\harol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
