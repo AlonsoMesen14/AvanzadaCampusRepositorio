@@ -81,6 +81,71 @@ namespace CampussAvanzadaa.Controllers
             return View(modelo);
         }
 
+
+
+        [HttpPost]
+        public IActionResult Search(EditarViewModel modelo)
+        {
+            if (modelo.IdPersona != null)
+            {
+
+                var persona = (from p in _context.Persona
+                               where p.IdPersona == modelo.IdPersona
+                               select new Model.Persona
+                               {
+                                   Pais = p.Pais,
+                                   NombreCompleto = p.NombreCompleto,
+                                   Correo = p.Correo,
+                                   Genero = p.Genero
+                               }).ToList();
+
+                EditarViewModel modelo1 = new EditarViewModel();
+
+                string genero = "";
+
+                string Nombre = "";
+                string Apellido1 = "";
+                string Apellido2 = "";
+                int controlador = 0;
+
+                foreach (var item in persona)
+                {
+                    switch (item.Genero)
+                    {
+
+                        case "F":
+                            genero = "Femenino";
+                            break;
+
+                        case "M":
+                            genero = "Masculino";
+                            break;
+
+                        case "I":
+                            genero = "Indefinido";
+                            break;
+                    }
+
+                    for (int i = 0; i <= item.NombreCompleto.Length; i++)
+                    {
+                        
+                    }
+
+                    modelo1.Nombre = item.NombreCompleto;
+                    modelo1.Correo = item.Correo;
+                    modelo1.Pais = item.Pais;
+                    modelo1.Genero = genero;
+
+
+                }
+
+
+                return View("~/Views/Registro/Edit.cshtml", modelo1);
+            }
+
+            return View(modelo);
+        }
+
         [HttpPost]
         public IActionResult Edit(EditarViewModel modelo)
         {

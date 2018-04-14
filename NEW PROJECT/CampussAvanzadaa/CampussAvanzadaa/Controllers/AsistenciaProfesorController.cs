@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CampussAvanzadaa.Data;
 using Microsoft.AspNetCore.Mvc;
+using CampussAvanzadaa.Model.AsistenciaProfesorViewModel;
 
 namespace CampussAvanzadaa.Controllers
 {
@@ -28,12 +29,15 @@ namespace CampussAvanzadaa.Controllers
             //string id = "Carrera0002";
             //modelo.CarreraId = id;
 
-            return View();
+            CreateViewModel modelo = new CreateViewModel();
+            modelo.Hora_entrada = DateTime.Today.ToString();
+
+            return View(modelo);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Createe( )
+
+        public IActionResult Create(CreateViewModel modelo)
         {
             return View();
 
@@ -41,5 +45,5 @@ namespace CampussAvanzadaa.Controllers
 
 
 
-        }
+    }
 }

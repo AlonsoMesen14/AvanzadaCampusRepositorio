@@ -42,11 +42,11 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     @*<li class="active">
-            <a href="Inicio.html">
-                <span class="fa fa-home"></span> Inicio
-                <span class="sr-only">(current)</span>
-            </a>
-        </li>*@
+                            <a href="Inicio.html">
+                                <span class="fa fa-home"></span> Inicio
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>*@
                     <li><a asp-controller="Home" asp-action="Index"><span class="fa fa-home"></span>Inicio</a></li>
 
 
@@ -129,31 +129,43 @@
 
 
         <div class="container">
+            <fieldset>
+                <form asp-controller="Registro" asp-action="Search" method="post">
 
-            <form id="form-work" class="" name="form-work" action="#">
 
-                <fieldset>
 
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-offset-2 col-md-4">
-                                <label class="control-label" for="carnet">Carne</label>
-                                <input name="carnet" class="form-control" placeholder="201801110256" id="carne" type="number" required="true">
+                                <label asp-for="IdPersona" class="control-label" for="carnet">Carne</label>
+                                <input asp-for="IdPersona" class="form-control" placeholder="201801110256" id="carne" type="number">
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-4">
-                                    <input type="button" name="btn_buscar" class="btn_buscar" onclick="ValidarCarne()" value="Buscar">
+                                    @*  <input type="button" name="btn_buscar" class="btn_buscar" value="Buscar">*@
+
+                                    <button type="submit" class="btn btn-dark btn-lg btn_registrar">
+                                        Buscar
+                                        <span class="fa fa-search" aria-hidden="true"></span>
+                                    </button>
+
                                 </div>
                             </div>
                         </div>
                     </div>
 
+
+
+                </form>
+
+                <form method="post">
+
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-offset-2 col-md-4">
-                                <label class="control-label" for="nome">Nombre</label>
-                                <input name="nombre" class="form-control" placeholder="Jon" type="text" required="true">
+                                <label asp-for="Nombre"  class="control-label" for="nome">Nombre</label>
+                                <input asp-for="Nombre" class="form-control" placeholder="Jon" type="text" required="true">
                             </div>
 
 
@@ -172,7 +184,7 @@
                                 <label class="control-label" for="tel">Telefono</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">+506</span>
-                                    <input name="tel" class="form-control" placeholder="12345678" type="number" required="true">
+                                    <input name="tel" class="form-control" placeholder="12345678" type="number">
                                 </div>
                             </div>
 
@@ -182,7 +194,7 @@
                                     <label class="control-label" for="cedula">Cedula</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">ID</span>
-                                        <input name="cedula" class="form-control" placeholder="000000000" type="number" required="true">
+                                        <input name="cedula" class="form-control" placeholder="000000000" type="number">
                                     </div>
                                 </div>
                             </div>
@@ -193,14 +205,14 @@
                             <div class="row">
                                 <div class="col-md-offset-2 col-md-4">
                                     <label class="control-label" for="fecha">Fecha nacimiento</label>
-                                    <input type="date" name="fecha" class="form-control" required="true" required="true">
+                                    <input type="date" name="fecha" class="form-control">
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-md-4">
                                         <label class="control-label" for="correo">Correo</label>
                                         <div class="input-group">
-                                            <span class="input-group-addon">@</span>
+                                            <span class="input-group-addon">e-</span>
                                             <input name="correo" class="form-control" placeholder="ejemplo@org.com" type="email" required="true">
                                         </div>
                                     </div>
@@ -220,18 +232,20 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                </fieldset>
-            </form>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-offset-2 col-md-4">
-                        <button type="submit" class="btn btn-dark btn-lg btn_registrar" onclick="Validar_Edicion_Registro()">
-                            Guardar
-                            <span class="fa fa-save" aria-hidden="true"></span>
-                        </button>
-                    </div>
+
+                </form>
+            </fieldset>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-4">
+                    <button type="submit" class="btn btn-dark btn-lg btn_registrar" onclick="Validar_Edicion_Registro()">
+                        Guardar
+                        <span class="fa fa-save" aria-hidden="true"></span>
+                    </button>
                 </div>
             </div>
+        </div>
     </section>
 </body>
