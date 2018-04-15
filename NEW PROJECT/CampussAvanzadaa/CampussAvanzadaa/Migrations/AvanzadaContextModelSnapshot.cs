@@ -409,6 +409,8 @@ namespace CampussAvanzadaa.Migrations
                     b.Property<string>("IdRubro")
                         .HasMaxLength(50);
 
+                    b.Property<string>("GrupoIdGrupo");
+
                     b.Property<string>("IdCarrera")
                         .HasColumnName("id_Carrera")
                         .HasMaxLength(50);
@@ -423,6 +425,8 @@ namespace CampussAvanzadaa.Migrations
                     b.Property<int>("Porcentaje");
 
                     b.HasKey("IdRubro");
+
+                    b.HasIndex("GrupoIdGrupo");
 
                     b.HasIndex("IdCurso", "IdCarrera");
 
@@ -621,6 +625,10 @@ namespace CampussAvanzadaa.Migrations
 
             modelBuilder.Entity("CampussAvanzadaa.Model.Rubros", b =>
                 {
+                    b.HasOne("CampussAvanzadaa.Model.Grupos", "Grupo")
+                        .WithMany("Rubros")
+                        .HasForeignKey("GrupoIdGrupo");
+
                     b.HasOne("CampussAvanzadaa.Model.Cursos", "IdC")
                         .WithMany("Rubros")
                         .HasForeignKey("IdCurso", "IdCarrera")

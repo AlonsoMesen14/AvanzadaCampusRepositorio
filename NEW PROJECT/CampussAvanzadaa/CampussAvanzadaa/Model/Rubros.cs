@@ -25,6 +25,9 @@ namespace CampussAvanzadaa.Model
         [StringLength(50)]
         public string IdCarrera { get; set; }
 
+        public Grupos Grupo { get; set; }
+   
+
         [ForeignKey("IdCurso,IdCarrera")]
         [InverseProperty("Rubros")]
         public Cursos IdC { get; set; }

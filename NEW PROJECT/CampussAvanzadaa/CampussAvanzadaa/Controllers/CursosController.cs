@@ -87,11 +87,11 @@ namespace CampussAvanzadaa.Controllers
             //              { IdCurso = cur.IdCurso, Descripcion = cur.Descripcion }).ToList();
 
 
-            modelo.Carreras = carreras;
+        //    modelo.Carreras = carreras;
             //modelo.Cursos = cursos;
 
 
-            return View(modelo);
+            return View();
         }
 
 

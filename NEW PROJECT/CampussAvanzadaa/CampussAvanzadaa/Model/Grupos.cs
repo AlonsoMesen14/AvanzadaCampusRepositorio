@@ -33,7 +33,8 @@ namespace CampussAvanzadaa.Model
         [StringLength(50)]
         public ICollection<Persona> IdPersona { get; set; }
 
-
+ 
+        public ICollection<Rubros> Rubros { get; set; }
 
         [ForeignKey("IdCarrera,IdCurso")]
         [InverseProperty("Grupos")]
@@ -42,5 +43,7 @@ namespace CampussAvanzadaa.Model
         public ICollection<AsistenciaEstudiantes> AsistenciaEstudiantes { get; set; }
         [InverseProperty("IdGrupoNavigation")]
         public ICollection<AsistenciaProfesor> AsistenciaProfesor { get; set; }
+
+       
     }
 }
