@@ -1,5 +1,173 @@
-﻿@model CampussAvanzadaa.Model.CursosViewModel.EditarViewModelViewModel
+﻿@model CampussAvanzadaa.Model.CursosViewModel.EditarViewModel
 @{
     Layout = "~/Views/Shared/_layout.cshtml";
     //ViewBag.Title = Model.Title;
 }
+
+
+<header>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse navbar-fixed-top bg-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <span class="fa fa-user"></span> Curso
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a  asp-controller="Home" asp-action="Index" >
+                            <span class="fa fa-home"></span> Inicio
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Curso
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a asp-controller="Cursos" asp-action="Create">Cursos</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a asp-controller="Cursos" asp-action="Create">Agregar</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#Asistencia">Asistencia Tecnica</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+</header>
+
+<!-- Modal -->
+<div class="modal fade" id="Asistencia" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Pongase en contacto con nosotros</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Identificacion</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Corta Descripcion:</label>
+                        <input type="textarea" name="" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="alert('Pronto nos pondremos en contacto con usted')">Enviar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<body class="body_registro">
+
+    <section class="color_label_registro">
+
+
+        <div class="container">
+            <br />
+            <br />
+            <h3 class="titulos">Editar Curso</h3>
+            <hr>
+        </div>
+
+        <div class="container">
+            <form id="form-work" class="" name="form-work" action="#">
+
+                <fieldset>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <label class="color_label_registro" asp-for="CursoSeleccionada">Curso Requisito</label>
+                                <select asp-for="CursoSeleccionada" class="form-control">
+                                    @foreach (var item in Model.Cursos)
+                                 {
+                                <option value="@item.IdCurso">@item.Descripcion</option>
+                                 }
+                                </select>
+                                <span asp-validation-for="CursoSeleccionada"></span>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <label class="color_label_registro" for="IdCurso">Código de Curso</label>
+                                <input name="IdCurso" class="form-control" placeholder="CUR00010" type="text" disabled="true">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="color_label_registro" asp-for="NombreCurso">Nombre del Curso</label>
+                                    <input asp-for="NombreCurso" class="form-control" placeholder="Curso 0001" type="text" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <label class="color_label_registro" asp-for="Creditos">Créditos</label>
+                                <input  asp-for="Creditos" class="form-control" placeholder="0" type="number">
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+            </form>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-4">
+                        <button type="submit" class="btn btn-dark btn-lg btn_registrar" onclick="alert('Cambios Guardados')">
+                            Guardar Cambios
+                            <span class="fa fa-save" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+</body>

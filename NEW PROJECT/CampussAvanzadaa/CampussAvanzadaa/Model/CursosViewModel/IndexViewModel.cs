@@ -6,27 +6,14 @@ using System.Threading.Tasks;
 
 namespace CampussAvanzadaa.Model.CursosViewModel
 {
-    public class CrearViewModel
+    public class IndexViewModel
     {
-
-        [Display(Name = "Nombre Curso")]
-        public string NombreCurso { get; set; }
 
         [Display(Name = "Nombre Carrera")]
         public string CarreraSeleccionada { get; set; }
 
-        [Display(Name = "Nombre Curso Requisito")]
-        public string CursoSeleccionada { get; set; }
-
-
-        [Display(Name = "Creditos")]
-        public int Creditos { get; set; }
-
-
         public ICollection<Carreras> Carreras { get; set; }
         public ICollection<Cursos> Cursos { get; set; }
-
-
 
 
     }

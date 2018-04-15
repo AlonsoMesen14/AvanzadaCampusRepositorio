@@ -39,13 +39,13 @@ namespace CampussAvanzadaa.Model
         [ForeignKey("IdCarrera")]
         [InverseProperty("Cursos")]
         public Carreras IdCarreraNavigation { get; set; }
-        [InverseProperty("IdC")]
+        [InverseProperty("DetalleMatricula")]
         public ICollection<DetalleMatricula> DetalleMatricula { get; set; }
-        [InverseProperty("IdC")]
+        [InverseProperty("IdCurso")]
         public ICollection<Grupos> Grupos { get; set; }
-        [InverseProperty("Id")]
+        [InverseProperty("IdNotas")]
         public ICollection<Notas> Notas { get; set; }
-        [InverseProperty("IdC")]
+        [InverseProperty("IdRubros")]
         public ICollection<Rubros> Rubros { get; set; }
     }
 }
