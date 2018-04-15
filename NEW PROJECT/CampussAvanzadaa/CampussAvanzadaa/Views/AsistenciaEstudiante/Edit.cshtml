@@ -102,37 +102,37 @@
             <form id="form-work" class="" name="form-work" action="#">
                 <fieldset>
                     @*<div class="form-group">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <label class="control-label" asp-for="FechaAsistencia">Fecha </label>
-                                <input type="date" asp-for="FechaAsistencia" name="fecha" class="form-control" required="true">
-                            </div>
-                        </div>
-                    </div>*@
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label" asp-for="FechaAsistencia">Fecha </label>
+                    <input type="date" asp-for="FechaAsistencia" name="fecha" class="form-control" required="true">
+                </div>
+            </div>
+        </div>*@
 
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-3">
-                                <label class="control-label" asp-for="Cursos">Curso:</label>
-                                <select class="form-control" name="Cursos">
+                                <label class="control-label" asp-for="CursoSeleccionado">Curso:</label>
+                                <select class="form-control" asp-for="CursoSeleccionado">
 
                                     @foreach (var item in Model.Cursos)
-                                    {
+                    {
 
-                                        <option value="@item.IdCurso">@item.Descripcion</option>
-                                    }
+                        <option value="@item.IdCurso">@item.Descripcion</option>
+    }
 
                                 </select>
                                 <span asp-validation-for="Cursos"></span>
 
 
                                 @*<select required class="form-control">
-                                        <option selected value="">Seleccione</option>
-                                        <option value="curso1">1</option>
-                                        <option value="curso2">2</option>
-                                        <option value="curso3">3</option>
-                                        <option value="curso4">4</option>
-                                    </select>*@
+                        <option selected value="">Seleccione</option>
+                        <option value="curso1">1</option>
+                        <option value="curso2">2</option>
+                        <option value="curso3">3</option>
+                        <option value="curso4">4</option>
+                    </select>*@
                             </div>
                         </div>
                     </div>
@@ -141,16 +141,23 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="control-label" asp-for="Grupos">Grupo:</label>
-                                <input asp-for="Grupos" class="form-control" placeholder="Doe" type="text">
-                                <span asp-validation-for="Grupos"></span>
+                                <select class="form-control" asp-for="GrupoSeleccionado">
+
+                                    @foreach (var item in Model.Grupos)
+        {
+
+                            <option value="@item.IdGrupo">@item.IdGrupo</option>
+}
+
+                                </select> <span asp-validation-for="Grupos"></span>
 
                                 @*<select required class="form-control">
-                                        <option value="" selected>Seleccione</option>
-                                        <option value="grupo1">1</option>
-                                        <option value="grupo2">2</option>
-                                        <option value="grupo3">3</option>
-                                        <option value="grupo4">4</option>
-                                    </select>*@
+            <option value="" selected>Seleccione</option>
+            <option value="grupo1">1</option>
+            <option value="grupo2">2</option>
+            <option value="grupo3">3</option>
+            <option value="grupo4">4</option>
+        </select>*@
                             </div>
                         </div>
                         <br />
@@ -174,54 +181,54 @@
                         <!--Table body-->
                         <tbody>
                             @*<tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>20180001</td>
-                                    <td>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>20180001</td>
+                    <td>
 
-                                        <select class="color_select" required>
-                                            <option selected value="">Seleccione</option>
-                                            <option value="Presente">Presente</option>
-                                            <option value="Tarde">Tarde</option>
-                                            <option value="Ausente">Ausente</option>
-                                            <option value="Ausencia Justificada">Ausencia Justificada</option>
-                                        </select>
+                        <select class="color_select" required>
+                            <option selected value="">Seleccione</option>
+                            <option value="Presente">Presente</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Ausente">Ausente</option>
+                            <option value="Ausencia Justificada">Ausencia Justificada</option>
+                        </select>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>
 
-                                        <select required class="color_select">
-                                            <option selected value="">Seleccione</option>
-                                            <option value="Presente">Presente</option>
-                                            <option value="Tarde">Tarde</option>
-                                            <option value="Ausente">Ausente</option>
-                                            <option value="Ausencia Justificada">Ausencia Justificada</option>
+                        <select required class="color_select">
+                            <option selected value="">Seleccione</option>
+                            <option value="Presente">Presente</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Ausente">Ausente</option>
+                            <option value="Ausencia Justificada">Ausencia Justificada</option>
 
-                                        </select>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    <td>
+                        </select>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>
 
-                                        <select required class="color_select">
-                                            <option selected value="0" selected>Seleccione</option>
-                                            <option value="Presente">Presente</option>
-                                            <option value="Tarde">Tarde</option>
-                                            <option value="Ausente">Ausente</option>
-                                            <option value="Ausencia Justificada">Ausencia Justificada</option>
+                        <select required class="color_select">
+                            <option selected value="0" selected>Seleccione</option>
+                            <option value="Presente">Presente</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Ausente">Ausente</option>
+                            <option value="Ausencia Justificada">Ausencia Justificada</option>
 
-                                        </select>
-                                </tr>*@
+                        </select>
+                </tr>*@
 
                         </tbody>
                         <!--Table body-->

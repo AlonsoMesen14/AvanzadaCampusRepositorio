@@ -28,11 +28,13 @@ namespace CampussAvanzadaa.Controllers
           
             //se debe crear un profesor en la base
             var cursos = (from c in _context.Cursos where c.IdPersona.Equals("Persona01") select new Model.Cursos { IdCurso = c.IdCurso, Descripcion = c.Descripcion }).ToList();
-            //var grupos = (from gru in _context.Grupos join cur in _context.Cursos on gru.IdCurso equals cur.IdCurso
-            //              where cur.IdCurso == gru.IdCurso select new Model.Grupos
-            //              {  IdGrupo = gru.IdGrupo ,  Descripcion = gru.Descripcion});
+            //var grupos = (from gru in _context.Grupos
+            //              join cur in _context.Cursos on gru.IdCurso equals cur.IdCurso
+            //              where cur.IdCurso == gru.IdCurso
+            //              select new Model.Grupos
+            //              { IdGrupo = gru.IdGrupo, Descripcion = gru.Descripcion });
             ////es una tarea asincrona, ya que carga un segundo combobox
-             modelo.Cursos = cursos;
+            modelo.Cursos = cursos;
 
             return View(modelo);
         }
@@ -42,18 +44,17 @@ namespace CampussAvanzadaa.Controllers
         {
             if (ModelState.IsValid)
             {
-                var cursos = (from c in _context.Cursos select c.IdCurso);
-                 var cursoid =   modelo.Cursos.OfType<Model.Cursos>().FirstOrDefault().IdCurso;
-
+                 var cursos = (from c in _context.Cursos select c.IdCurso);
+               
 
                 _context.Cursos.Add(new Model.Cursos
                 {
-                    IdCurso = cursoid,
+                    IdCurso = modelo.CursoSeleccionado,
                     Grupos = modelo.Grupos,
                     IdPersona = modelo.Persona.ToString(),
 
                 });
-                _context.SaveChanges();
+                    _context.SaveChanges();
                 return RedirectToAction("Index", new Microsoft.AspNetCore.Routing.RouteValueDictionary(
                                     new { controller = "Home", action = "Index" }));
 

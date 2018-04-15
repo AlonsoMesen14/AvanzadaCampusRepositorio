@@ -54,7 +54,7 @@ namespace CampussAvanzadaa
                 routes.MapRoute(
                     name: "default",
 
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Cursos}/{action=Create}/{id?}");
 
           //  template: "{controller=Persona_por_tipo}/{action=Create}/{id?}");
 

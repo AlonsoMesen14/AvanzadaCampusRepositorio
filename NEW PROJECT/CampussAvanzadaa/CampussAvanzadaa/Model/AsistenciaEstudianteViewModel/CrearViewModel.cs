@@ -17,7 +17,15 @@ namespace CampussAvanzadaa.Model.AsistenciaEstudianteViewModel
 
        // public string CursosId { get; set; }
 
+        [Required]
+        [Display(Name = "Curso")]
+        public string CursoSeleccionado { get; set; }
         public ICollection<Cursos> Cursos { get; set; }
+
+        [Required]
+        [Display(Name = "Grupo")]
+        public string GrupoSeleccionado { get; set; }
+
         public ICollection<Grupos> Grupos { get; set; }
 
         public ICollection<Persona> Persona { get; set; }
