@@ -87,7 +87,7 @@
                     <div class="btn-group btn-group-justified">
                         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Marca Profesor</a>
 
-                       @* <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="Label()">Marca Profesor</a>*@
+                        @* <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="Label()">Marca Profesor</a>*@
                     </div>
                 </div>
 
@@ -126,7 +126,7 @@
                         <div class="modal-body text-center mb-1">
                             <h5 class="text-align-center" id="lbl_date">Fecha</h5>
                             <label asp-for="Hora_entrada" class="text-align-center" id="lbl_time"></label>
-                            
+
                             <input asp-for="Hora_entrada" class="text-align-center" />
                             <div class="text-center mt-4">
                                 <form method="post">
@@ -179,8 +179,7 @@
 
                 <div class="col-md-2">
                     <div class="btn-group btn-group-justified">
-
-                        <a asp-controller="Rubros" asp-action="Index" class="btn btn-primary"> Rubros</a>
+                        <a asp-controller="Rubros" asp-action="Create" class="btn btn-primary"> Rubros</a>
                     </div>
                 </div>
 
@@ -201,33 +200,33 @@
                     </div>
                 </div>
 
-                @*<div class="col-md-2">
+                @*     <div class="col-md-2">
 
-                <div class="btn-group btn-group-justified">
-                    <a asp-controller="AsistenciaEstudiante" asp-action="Create" class="btn btn-primary"> Asistencia Estudiante</a>
-                </div>
-            </div>
+                        <div class="btn-group btn-group-justified">
+                            <a asp-controller="Rubros" asp-action="Create" class="btn btn-primary">Rubros</a>
+                        </div>
+                    </div>
 
-            <div class="col-md-2">
+                    <div class="col-md-2">
 
-                <div class="btn-group btn-group-justified">
-                    <a asp-controller="Cursos" asp-action="Create" class="btn btn-primary">  Curso</a>
-                </div>
-            </div>
+                            <div class="btn-group btn-group-justified">
+                                <a asp-controller="Cursos" asp-action="Create" class="btn btn-primary">  Curso</a>
+                            </div>
+                        </div>
 
-            <div class="col-md-2">
+                        <div class="col-md-2">
 
-                <div class="btn-group btn-group-justified">
-                    <a asp-controller="Grupo" asp-action="Index" class="btn btn-primary">  Grupo</a>
-                </div>
-            </div>
+                            <div class="btn-group btn-group-justified">
+                                <a asp-controller="Grupo" asp-action="Index" class="btn btn-primary">  Grupo</a>
+                            </div>
+                        </div>
 
-            <div class="col-md-2">
-                <div class="btn-group btn-group-justified">
+                        <div class="col-md-2">
+                            <div class="btn-group btn-group-justified">
 
-                    <a asp-controller="Rubros" asp-action="Index" class="btn btn-primary"> Rubros</a>
-                </div>
-            </div>*@
+                                <a asp-controller="Rubros" asp-action="Index" class="btn btn-primary"> Rubros</a>
+                            </div>
+                        </div>*@
 
 
             </div>
