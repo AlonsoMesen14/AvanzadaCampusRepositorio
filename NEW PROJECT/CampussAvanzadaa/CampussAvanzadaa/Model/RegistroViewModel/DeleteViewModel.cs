@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CampussAvanzadaa.Model.RegistroViewModel
 {
-    public class EditarViewModel
+    public class DeleteViewModel
     {
+
         [Display(Name = "Cedula")]
         [StringLength(50)]
         public string IdPersona { get; set; }
@@ -16,7 +17,7 @@ namespace CampussAvanzadaa.Model.RegistroViewModel
         [StringLength(50)]
         public string Nombre { get; set; }
 
-        
+      
         [Required]
         [StringLength(50)]
         [EmailAddress]
@@ -34,19 +35,25 @@ namespace CampussAvanzadaa.Model.RegistroViewModel
 
 
         public string Ciudad { get; set; }
-       
-        //[Display(Name = "Tipo Persona")]
-        //[StringLength(50)]
-        //public string IdTipoPersona { get; set; }
-
-
-        //[Display(Name = "Tipo Persona")]
-        //public ICollection<TipoPersona> Tipos { get; set; }
 
 
         [Required]
         public string Genero { get; set; }
 
+
+        [Required]
+        public string Carnet { get; set; }
+
+
+        [Display(Name = "Tipo Persona")]
+        [StringLength(50)]
+        public string IdTipoPersona { get; set; }
+
+
+        [Display(Name = "Tipo Persona")]
+        public ICollection<TipoPersona> Tipos { get; set; }
+
+
+
     }
-    
 }

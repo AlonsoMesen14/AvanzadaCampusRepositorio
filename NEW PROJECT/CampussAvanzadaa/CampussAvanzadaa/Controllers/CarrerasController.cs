@@ -64,11 +64,17 @@ namespace CampussAvanzadaa.Controllers
                 var db = (from c in _context.Secuencias where c.Descripcion == "Carreras" select c.Value).ToList();
 
                 int Id = 0;
+
                 foreach (var item in db)
                 {
                     Id = int.Parse(item.ToString());
+                   
                 }
 
+              var  index = (from c in _context.Secuencias where c.Descripcion == "Carreras" select new { c.Value, c.Descripcion}).FirstOrDefault();
+
+                //index.Value = index.Value + 1;
+                
                 //FINALIZA
                 string id = "Carrera" + Id;
                 
@@ -80,6 +86,8 @@ namespace CampussAvanzadaa.Controllers
                     IdCarrera = id,
                     IdPersona = modelo.PersonaAsignada                    
                 });
+
+                
 
                 _context.SaveChanges();
 

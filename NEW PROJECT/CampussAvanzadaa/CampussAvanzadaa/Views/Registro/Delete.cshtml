@@ -1,4 +1,24 @@
-﻿@model CampussAvanzadaa.Model.RegistroViewModel.CrearViewModel
+﻿
+@model CampussAvanzadaa.Model.RegistroViewModel.DeleteViewModel
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./estilos.css">
+    <script src="./validaciones.js"></script>
+    <title>Editar Persona</title>
+</head>
 
 
 <header>
@@ -22,12 +42,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    @*<li class="active">
-                            <a href="Inicio.html">
-                                <span class="fa fa-home"></span> Inicio
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>*@
 
                     <li><a asp-controller="Home" asp-action="Index"><span class="fa fa-home"></span> Inicio</a></li>
 
@@ -38,12 +52,17 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-
-                            <li><a asp-controller="Registro" asp-action="Create">Agregar</a></li>
+                            <li>
+                                <a href="Registro.html">Agregar</a>
+                            </li>
                             <li role="separator" class="divider"></li>
-                            <li><a asp-controller="Registro" asp-action="Edit">Editar</a></li>
+                            <li>
+                                <a href="#">Editar</a>
+                            </li>
                             <li role="separator" class="divider"></li>
-                            <li><a asp-controller="Registro" asp-action="Delete">Eliminar</a></li>
+                            <li>
+                                <a href="Eliminar_Registro.html">Eliminar</a>
+                            </li>
 
                         </ul>
                     </li>
@@ -99,134 +118,110 @@
         <div class="container">
             <br />
             <br />
-            <h3 class="titulos">Registro de Persona</h3>
+            <h3 class="titulos">Editar Persona</h3>
             <hr>
+
         </div>
 
-        <div class="container">
 
-            <form method="post">
-                <fieldset>
+        <div class="container">
+            <fieldset>
+                <form asp-controller="Registro" asp-action="Search1" method="post">
+
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-offset-2 col-md-4">
-                                <label asp-for="Nombre" class="control-label"></label>
+                                <label asp-for="IdPersona" class="control-label"></label>
+                                <input asp-for="IdPersona" class="form-control" placeholder="201801110256" type="number">
+                            </div>
+
+                            <div class="col-md-3">
+                                @*  <input type="button" name="btn_buscar" class="btn_buscar" value="Buscar">*@
+
+                                <button type="submit" class="btn btn-dark btn-lg btn_registrar">
+                                    Buscar
+                                    <span class="fa fa-search" aria-hidden="true"></span>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </form>
+
+                <form asp-controller="Registro" asp-action="Delete" method="post">
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <label asp-for="Nombre" class="control-label" for="nome"></label>
                                 <input asp-for="Nombre" class="form-control" placeholder="Jon" type="text">
                             </div>
+
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-offset-2 col-md-4">
-                                <label asp-for="Apellido1" class="control-label"></label>
-                                <input asp-for="Apellido1" class="form-control" placeholder="Smith" type="text">
-                            </div>
-
                             <div class="form-group">
-                                <div class="col-md-4">
-                                    <label asp-for="Apellido2" class="control-label"></label>
-                                    <input asp-for="Apellido2" class="form-control" placeholder="Huck" type="text">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="row">
-                            @*<div class="col-md-offset-2 col-md-4">
-                                    <label class="control-label" for="tel">Telefono</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">+506</span>
-                                        <input name="Telefono" class="form-control" placeholder="12345678" type="number" required="true">
-                                    </div>
-                                </div>*@
-
-                            <div class="form-group">
-                                <div class=" col-md-offset-2 col-md-4">
+                                <div class="col-md-offset-2 col-md-4">
                                     <label asp-for="IdPersona" class="control-label"></label>
                                     <div class="input-group">
                                         <span class="input-group-addon">ID</span>
-                                        <input asp-for="IdPersona" class="form-control" placeholder="12345678" type="number">
+                                        <input asp-for="IdPersona" class="form-control" placeholder="303550912" type="number">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label asp-for="Correo" class="control-label"></label>
+                                    <div class="input-group">
+                                        <span asp-validation-for="Correo" class="input-group-addon">e-</span>
+                                        <input asp-for="Correo" class="form-control" placeholder="ejemplo@org.com" type="email" required="true">
+
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
-                                <label class="control-label" asp-for="Carnet"></label>
-                                <input class="form-control" asp-for="Carnet" type="number">
-                            </div>
-
                         </div>
                     </div>
 
+                    @*<div class="form-group">
+        <div class="row">
+            @*<div class="col-md-offset-2 col-md-4">
+                    <label class="control-label" for="fecha">Fecha nacimiento</label>
+                    <input type="date" name="fecha" class="form-control">
+                </div>*@
 
+                    @*<div class="form-group">
+                        <div class="col-md-4">
+                            <label asp-for="Correo" class="control-label"></label>
+                            <div class="input-group">
+                                <span asp-validation-for="Correo" class="input-group-addon">e-</span>
+                                <input asp-for="Correo" class="form-control" placeholder="ejemplo@org.com" type="email" required="true">
 
-
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>*@
 
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-offset-2 col-md-4">
-                                <label class="control-label" asp-for="Correo"></label>
-                                <div class="input-group">
-                                    <span class="input-group-addon">e-</span>
-                                    <input asp-for="Correo" class="form-control" placeholder="ejemplo@org.com">
-                                </div>
-                            </div>
+                                <label asp-for="Genero" class="control-label"></label>
+                                <select asp-for="Genero" class="form-control">
 
-                            <div class="form-group">
-                                <div class="col-md-4">
-                                    <label class="control-label" asp-for="Genero"></label>
-                                    <select asp-for="Genero" class="form-control">
-                                        @*<option selected value="default">--Seleccione el genero--</option>*@
-                                        <option value="M">Masculino</option>
-                                        <option value="F">Femenino</option>
-                                        <option value="I">Indefinido</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="I">Indefinido</option>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-offset-2 col-md-4">
-                                <label asp-for="Usuario" class="control-label"></label>
-                                <input asp-for="Usuario" class="form-control" type="text">
-                            </div>
-
-
-                            <div class="col-md-4">
-                                <label class="control-label" asp-for="IdTipoPersona"></label>
-
-                                <select asp-for="IdTipoPersona" class="form-control">
-
-                                    @foreach (var item in Model.Tipos)
-                                    {
-
-                                        <option value="@item.IdTipoPersona">@item.Descripción</option>
-                                    }
                                 </select>
-
-                                <span asp-validation-for="IdTipoPersona"></span>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-md-offset-2 col-md-4">
+                            <div class="col-md-4">
                                 <label asp-for="Pais" class="control-label"></label>
-                                @*<select asp-for="Pais" class="form-control">
-
-                                        @foreach (var item in Model.Paises)
-                                        {
-                                            <option value="@item.Valor">@item.Nombre</option>
-
-                                        }
-                                    </select>*@
 
                                 <select asp-for="Pais" class="form-control">
                                     <option value="AF">Afghanistan</option>
@@ -479,25 +474,24 @@
                                     <option value="ZM">Zambia</option>
                                     <option value="ZW">Zimbabwe</option>
                                 </select>
-                                <span asp-validation-for="Pais"></span>
+                                @*<span asp-validation-for="Pais"></span>*@
                             </div>
                         </div>
                     </div>
-                </fieldset>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-offset-2 col-md-4">
-                            <button type="submit" class="btn btn-dark btn-lg btn_registrar">
-                                Registrar
-                                <span class="fa fa-save" aria-hidden="true"></span>
-                            </button>
+                   
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-4">
+                                <button type="submit" class="btn btn-dark btn-lg btn_registrar">
+                                    Eliminar
+                                    <span class="fa fa-trash" aria-hidden="true"></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
+
+                </form>
+            </fieldset>
         </div>
     </section>
 </body>
-
-
-

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CampussAvanzadaa.Model.RegistroViewModel;
 using CampussAvanzadaa.Data;
+
+
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CampussAvanzadaa.Controllers
@@ -88,7 +90,6 @@ namespace CampussAvanzadaa.Controllers
         {
             if (modelo.IdPersona != null)
             {
-
                 var persona = (from p in _context.Persona
                                where p.IdPersona == modelo.IdPersona
                                select new Model.Persona
@@ -99,14 +100,23 @@ namespace CampussAvanzadaa.Controllers
                                    Genero = p.Genero
                                }).ToList();
 
+                if (persona.Count() == 0)
+                {
+                    return RedirectToAction("Error", new Microsoft.AspNetCore.Routing.RouteValueDictionary(
+                  new { controller = "Home", action = "Error" }));
+                }
+
+
+
+
                 EditarViewModel modelo1 = new EditarViewModel();
 
                 string genero = "";
 
-                string Nombre = "";
-                string Apellido1 = "";
-                string Apellido2 = "";
-                int controlador = 0;
+                //string Nombre = "";
+                //string Apellido1 = "";
+                //string Apellido2 = "";
+                //int controlador = 0;
 
                 foreach (var item in persona)
                 {
@@ -126,15 +136,12 @@ namespace CampussAvanzadaa.Controllers
                             break;
                     }
 
-                    for (int i = 0; i <= item.NombreCompleto.Length; i++)
-                    {
-                        
-                    }
 
                     modelo1.Nombre = item.NombreCompleto;
                     modelo1.Correo = item.Correo;
                     modelo1.Pais = item.Pais;
                     modelo1.Genero = genero;
+
                 }
 
 
@@ -145,11 +152,124 @@ namespace CampussAvanzadaa.Controllers
         }
 
         [HttpPost]
+        public IActionResult Search1(DeleteViewModel modelo)
+        {
+            if (modelo.IdPersona != null)
+            {
+
+                var persona = (from p in _context.Persona
+                               where p.IdPersona == modelo.IdPersona
+                               select new Model.Persona
+                               {
+                                   Pais = p.Pais,
+                                   NombreCompleto = p.NombreCompleto,
+                                   Correo = p.Correo,
+                                   Genero = p.Genero
+                               }).ToList();
+
+
+                if (persona.Count() == 0)
+                {
+                    return RedirectToAction("Error", new Microsoft.AspNetCore.Routing.RouteValueDictionary(
+                  new { controller = "Home", action = "Error" }));
+                }
+
+
+                DeleteViewModel modelo1 = new DeleteViewModel();
+
+                string genero = "";
+
+                //string Nombre = "";
+                //string Apellido1 = "";
+                //string Apellido2 = "";
+                //int controlador = 0;
+
+                foreach (var item in persona)
+                {
+                    switch (item.Genero)
+                    {
+
+                        case "F":
+                            genero = "Femenino";
+                            break;
+
+                        case "M":
+                            genero = "Masculino";
+                            break;
+
+                        case "I":
+                            genero = "Indefinido";
+                            break;
+                    }
+
+
+                    modelo1.Nombre = item.NombreCompleto;
+                    modelo1.Correo = item.Correo;
+                    modelo1.Pais = item.Pais;
+                    modelo1.Genero = genero;
+                    modelo1.IdTipoPersona = item.IdTipoPersona;
+
+                }
+
+
+                return View("~/Views/Registro/Delete.cshtml", modelo1);
+            }
+
+            return View(modelo);
+        }
+
+
+        [HttpPost]
         public IActionResult Edit(EditarViewModel modelo)
         {
+            if (ModelState.IsValid)
+            {
+
+                var persona = (from c in _context.Persona where c.IdTipoPersona == modelo.IdPersona select c).FirstOrDefault();
+
+                persona.NombreCompleto = modelo.Nombre;
+                persona.Genero = modelo.Genero;
+                persona.Pais = modelo.Pais;
+                modelo.Correo = modelo.Correo;
+
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", new Microsoft.AspNetCore.Routing.RouteValueDictionary(
+                        new { controller = "Home", action = "Index" }));
+
+            }
 
             return View();
         }
+
+        public IActionResult Delete()
+        {
+            DeleteViewModel modelo = new DeleteViewModel();
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(DeleteViewModel modelo)
+        {
+            if (modelo.IdPersona != null)
+            {
+                Model.Persona x = _context.Persona.Single(p => p.IdPersona == modelo.IdPersona);
+
+                _context.Persona.Remove(x);
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", new Microsoft.AspNetCore.Routing.RouteValueDictionary(
+                       new { controller = "Home", action = "Index" }));
+
+
+            }
+            return View(modelo);
+
+        }
+
 
 
 
