@@ -346,6 +346,8 @@ namespace CampussAvanzadaa.Migrations
                         .HasColumnName("genero")
                         .HasMaxLength(1);
 
+                    b.Property<string>("GrupoIdGrupo");
+
                     b.Property<string>("IdTipoPersona")
                         .HasColumnName("idTipoPersona")
                         .HasMaxLength(50);
@@ -363,6 +365,8 @@ namespace CampussAvanzadaa.Migrations
                         .HasMaxLength(50);
 
                     b.HasKey("IdPersona");
+
+                    b.HasIndex("GrupoIdGrupo");
 
                     b.HasIndex("IdTipoPersona");
 
@@ -384,6 +388,20 @@ namespace CampussAvanzadaa.Migrations
                     b.HasIndex("IdTipoPersona");
 
                     b.ToTable("PersonaXTipo");
+                });
+
+            modelBuilder.Entity("CampussAvanzadaa.Model.Roles", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("IdUsuario");
+
+                    b.Property<string>("Nombre");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("CampussAvanzadaa.Model.Rubros", b =>
@@ -409,6 +427,20 @@ namespace CampussAvanzadaa.Migrations
                     b.HasIndex("IdCurso", "IdCarrera");
 
                     b.ToTable("Rubros");
+                });
+
+            modelBuilder.Entity("CampussAvanzadaa.Model.Secuencias", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Descripcion");
+
+                    b.Property<int>("Value");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Secuencias");
                 });
 
             modelBuilder.Entity("CampussAvanzadaa.Model.TipoPersona", b =>
@@ -564,6 +596,10 @@ namespace CampussAvanzadaa.Migrations
 
             modelBuilder.Entity("CampussAvanzadaa.Model.Persona", b =>
                 {
+                    b.HasOne("CampussAvanzadaa.Model.Grupos", "Grupo")
+                        .WithMany("IdPersona")
+                        .HasForeignKey("GrupoIdGrupo");
+
                     b.HasOne("CampussAvanzadaa.Model.TipoPersona", "IdTipoPersonaNavigation")
                         .WithMany("Persona")
                         .HasForeignKey("IdTipoPersona")

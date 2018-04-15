@@ -46,6 +46,9 @@ namespace CampussAvanzadaa.Model
         [Column("genero")]
         [StringLength(1)]
         public string Genero { get; set; }
+        
+        public Grupos Grupo { get; set; }
+
 
         [ForeignKey("IdTipoPersona")]
         [InverseProperty("Persona")]
@@ -64,5 +67,7 @@ namespace CampussAvanzadaa.Model
         public ICollection<Notas> Notas { get; set; }
         [InverseProperty("IdPersonaNavigation")]
         public ICollection<PersonaXtipo> PersonaXtipo { get; set; }
+
+        
     }
 }

@@ -31,7 +31,21 @@ namespace CampussAvanzadaa.Controllers
         public IActionResult Create()
         {
             CrearViewModel modelo = new CrearViewModel();
-            string id = "Carrera0002";
+// SELEC DE SECUENCIAS DE LA BASE DE DATOS
+
+            //EMPIEZA
+            var db = (from c in _context.Secuencias where c.Descripcion == "Carreras" select c.Value).ToList();
+
+            int Id = 0;
+            foreach (var item in db) {
+                 Id = int.Parse(item.ToString());
+            }
+
+            //var persona = (from c in _context.PersonaXtipo where c.IdTipoPersona==1 select c.Value).ToList();
+
+            //FINALIZA
+            string id = "Carrera" + Id;
+
             modelo.CarreraId = id;
 
             return View(modelo);
@@ -43,17 +57,28 @@ namespace CampussAvanzadaa.Controllers
 
             if (ModelState.IsValid)
             {
-                var carrera = (from c in _context.Carreras select c.IdCarrera);
-                //se ocupa generar una tabla secuencias donde se almacenan los ids de las entidades
-                string id = "Carrera02";
+                //var carrera = (from c in _context.Carreras select c.IdCarrera);
+                ////se ocupa generar una tabla secuencias donde se almacenan los ids de las entidades
+                //string id = "Carrera02";
+
+                var db = (from c in _context.Secuencias where c.Descripcion == "Carreras" select c.Value).ToList();
+
+                int Id = 0;
+                foreach (var item in db)
+                {
+                    Id = int.Parse(item.ToString());
+                }
+
+                //FINALIZA
+                string id = "Carrera" + Id;
+                
 
                 _context.Carreras.Add(new Model.Carreras
                 {
                     NombreCarrera = modelo.NombreCarrera,
                     Cursos = null,
                     IdCarrera = id,
-                    IdPersona = modelo.PersonaAsignada,
-
+                    IdPersona = modelo.PersonaAsignada                    
                 });
 
                 _context.SaveChanges();

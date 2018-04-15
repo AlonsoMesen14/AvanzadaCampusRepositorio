@@ -29,6 +29,12 @@ namespace CampussAvanzadaa.Model
         [StringLength(50)]
         public string IdCarrera { get; set; }
 
+        [Column("id_persona")]
+        [StringLength(50)]
+        public ICollection<Persona> IdPersona { get; set; }
+
+
+
         [ForeignKey("IdCarrera,IdCurso")]
         [InverseProperty("Grupos")]
         public Cursos IdC { get; set; }

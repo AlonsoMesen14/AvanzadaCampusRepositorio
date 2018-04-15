@@ -135,8 +135,6 @@ namespace CampussAvanzadaa.Controllers
                     modelo1.Correo = item.Correo;
                     modelo1.Pais = item.Pais;
                     modelo1.Genero = genero;
-
-
                 }
 
 

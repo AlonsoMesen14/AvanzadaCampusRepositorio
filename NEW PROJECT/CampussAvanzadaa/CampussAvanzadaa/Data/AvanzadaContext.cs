@@ -27,6 +27,10 @@ namespace CampussAvanzadaa.Data
         public virtual DbSet<TipoPersona> TipoPersona { get; set; }
         public virtual DbSet<Ventanas> Ventanas { get; set; }
         public virtual DbSet<VentanasXperfil> VentanasXperfil { get; set; }
+        public virtual DbSet<Secuencias> Secuencias{ get; set; }
+        public virtual DbSet<Roles> Roles{ get; set; }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
